@@ -1,0 +1,41 @@
+#' Query Snowflake
+#'
+#' @param q query
+#' @param dsn driver name, default 'SnowFlake'
+#' @param database database, default 'FLK_DUB_DB_DATALAKE_PRD'
+#' @param schema schema, default 'DIMENSIONAL_IAC'
+#' @param bigint how do we treat bigints, defualt 'integer'
+#' @param LogLevel set to zero to avois printing connection messages
+#' @param params optional list of parameters to be passed to the query
+#' @param show.query show the query being sent, default = FALSE
+#'
+#' @return tibble
+#' @export
+#'
+#' @examples
+#' query_sf("select * from dimservicepoint limit 1", show.query = TRUE)
+#'
+#' @examples
+#' query_sf("select * from dimservicepoint where sk_servicepointid in (?id_)",
+#'           params = list(id_ = DBI::SQL(paste(951495858:951495862, collapse=','))),
+#'           show.query = TRUE)
+#'
+query_sf <- function(q, dsn = 'SnowFlake', database = 'FLK_DUB_DB_DATALAKE_PRD', schema = 'DIMENSIONAL_IAC',
+                     bigint = 'integer', LogLevel = 0, params = list(), show.query = FALSE) {
+
+  conn <- DBI::dbConnect(drv = odbc::odbc(), dsn = dsn, database = database, schema = schema, bigint = bigint, LogLevel=0)
+
+  iq <- DBI::sqlInterpolate(conn, q, .dots = params)
+  if(show.query) {message(iq)}
+
+  out <- DBI::dbGetQuery(conn, statement = iq) |> tibble::as_tibble()
+
+  names(out) <- tolower(names(out))
+
+  out
+}
+
+
+
+
+
