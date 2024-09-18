@@ -45,4 +45,14 @@ query_sf("select * from dimservicepoint where sk_servicepointid in (?id_)",
           params = list(id_ = DBI::SQL(paste(951495858:951495862, collapse=','))),
           show.query = TRUE)
 
+query_sf("
+with a as (
+  select value as x, *
+    from table(flatten(input => to_array([?my_values])))
+)
+select * from a",
+  params = list(my_values = DBI::SQL(paste(1:10, collapse=','))),
+  show.query = TRUE
+  )
+
 }

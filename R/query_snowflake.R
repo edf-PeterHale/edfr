@@ -4,8 +4,8 @@
 #' @param dsn driver name, default 'SnowFlake'
 #' @param database database, default 'FLK_DUB_DB_DATALAKE_PRD'
 #' @param schema schema, default 'DIMENSIONAL_IAC'
-#' @param bigint how do we treat bigints, defualt 'integer'
-#' @param LogLevel set to zero to avois printing connection messages
+#' @param bigint how do we treat bigints, default 'integer'
+#' @param LogLevel set to zero to avoid printing connection messages
 #' @param params optional list of parameters to be passed to the query
 #' @param show.query show the query being sent, default = FALSE
 #'
@@ -19,6 +19,16 @@
 #' query_sf("select * from dimservicepoint where sk_servicepointid in (?id_)",
 #'           params = list(id_ = DBI::SQL(paste(951495858:951495862, collapse=','))),
 #'           show.query = TRUE)
+#'
+#' @examples
+#' query_sf("
+#' with a as (
+#' select value as x, *
+#' from table(flatten(input => to_array([?my_values])))
+#' )
+#' select * from a",
+#' params = list(my_values = DBI::SQL(paste(1:10, collapse=','))),
+#' show.query = TRUE)
 #'
 query_sf <- function(q, dsn = 'SnowFlake', database = 'FLK_DUB_DB_DATALAKE_PRD', schema = 'DIMENSIONAL_IAC',
                      bigint = 'integer', LogLevel = 0, params = list(), show.query = FALSE) {
