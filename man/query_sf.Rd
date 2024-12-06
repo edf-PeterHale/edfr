@@ -24,9 +24,9 @@ query_sf(
 
 \item{schema}{schema, default 'DIMENSIONAL_IAC'}
 
-\item{bigint}{how do we treat bigints, defualt 'integer'}
+\item{bigint}{how do we treat bigints, default 'integer'}
 
-\item{LogLevel}{set to zero to avois printing connection messages}
+\item{LogLevel}{set to zero to avoid printing connection messages}
 
 \item{params}{optional list of parameters to be passed to the query}
 
@@ -47,12 +47,11 @@ query_sf("select * from dimservicepoint where sk_servicepointid in (?id_)",
 
 query_sf("
 with a as (
-  select value as x, *
-    from table(flatten(input => to_array([?my_values])))
+select value as x, *
+from table(flatten(input => to_array([?my_values])))
 )
 select * from a",
-  params = list(my_values = DBI::SQL(paste(1:10, collapse=','))),
-  show.query = TRUE
-  )
+params = list(my_values = DBI::SQL(paste(1:10, collapse=','))),
+show.query = TRUE)
 
 }
