@@ -4,14 +4,20 @@
 \alias{fix_comms}
 \title{Fix Comms}
 \usage{
-fix_comms(df)
+fix_comms(df, col = comms)
 }
 \arguments{
-\item{df}{}
+\item{df}{dataframe}
+
+\item{col}{column to be fixed, default = `comms`}
 }
 \value{
 tibble
 }
 \description{
 Fix Comms
+}
+\examples{
+tibble::tibble(x = c('77123','447456','003451','u192.168.1.1')) |> fix_comms(col=x)
+
 }
