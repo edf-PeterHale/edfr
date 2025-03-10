@@ -9,6 +9,7 @@ query_sf(
   dsn = "SnowFlake",
   database = "FLK_DUB_DB_DATALAKE_PRD",
   schema = "DIMENSIONAL_IAC",
+  role = "FLK_DUB_ROL_DATALAKEBUSINESSANALYST_PRD",
   bigint = "integer",
   LogLevel = 0,
   params = list(),
@@ -18,11 +19,13 @@ query_sf(
 \arguments{
 \item{q}{query}
 
-\item{dsn}{driver name, default 'SnowFlake'}
+\item{dsn}{driver name, default **SnowFlake**}
 
-\item{database}{database, default 'FLK_DUB_DB_DATALAKE_PRD'}
+\item{database}{database, default **FLK_DUB_DB_DATALAKE_PRD**}
 
-\item{schema}{schema, default 'DIMENSIONAL_IAC'}
+\item{schema}{schema, default **DIMENSIONAL_IAC**}
+
+\item{role}{Snowflake role, default **FLK_DUB_ROL_DATALAKEBUSINESSANALYST_PRD**}
 
 \item{bigint}{how do we treat bigints, default 'integer'}
 

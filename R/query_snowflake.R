@@ -1,9 +1,10 @@
 #' Query Snowflake
 #'
 #' @param q query
-#' @param dsn driver name, default 'SnowFlake'
-#' @param database database, default 'FLK_DUB_DB_DATALAKE_PRD'
-#' @param schema schema, default 'DIMENSIONAL_IAC'
+#' @param dsn driver name, default **SnowFlake**
+#' @param database database, default **FLK_DUB_DB_DATALAKE_PRD**
+#' @param schema schema, default **DIMENSIONAL_IAC**
+#' @param role Snowflake role, default **FLK_DUB_ROL_DATALAKEBUSINESSANALYST_PRD**
 #' @param bigint how do we treat bigints, default 'integer'
 #' @param LogLevel set to zero to avoid printing connection messages
 #' @param params optional list of parameters to be passed to the query
@@ -31,9 +32,11 @@
 #' show.query = TRUE)
 #'
 query_sf <- function(q, dsn = 'SnowFlake', database = 'FLK_DUB_DB_DATALAKE_PRD', schema = 'DIMENSIONAL_IAC',
-                     bigint = 'integer', LogLevel = 0, params = list(), show.query = FALSE) {
+                     role = "FLK_DUB_ROL_DATALAKEBUSINESSANALYST_PRD", bigint = 'integer',
+                     LogLevel = 0, params = list(), show.query = FALSE) {
 
-  conn <- DBI::dbConnect(drv = odbc::odbc(), dsn = dsn, database = database, schema = schema, bigint = bigint, LogLevel=0)
+  conn <- DBI::dbConnect(drv = odbc::odbc(), dsn = dsn, database = database, schema = schema,
+                         role = role, bigint = bigint, LogLevel=0)
 
   iq <- DBI::sqlInterpolate(conn, q, .dots = params)
   if(show.query) {message(iq)}
@@ -44,8 +47,3 @@ query_sf <- function(q, dsn = 'SnowFlake', database = 'FLK_DUB_DB_DATALAKE_PRD',
 
   out
 }
-
-
-
-
-
