@@ -4,14 +4,30 @@
 \alias{write_clipboard}
 \title{Write Clipboard}
 \usage{
-write_clipboard(d, size = 32768, sep = "\\t", row.names = FALSE)
+write_clipboard(
+  d,
+  size = 32768,
+  sep = "\\t",
+  row.names = FALSE,
+  quote = FALSE,
+  ...
+)
 }
 \arguments{
+\item{d}{object to be saved to clipboard}
+
 \item{size}{size of clipbaord to be used (default 32768)}
 
 \item{sep}{separator, default '\t'}
 
-\item{row.names}{default to FALSE}
+\item{row.names}{include row names? default to FALSE}
+
+\item{quote}{surround with quotes? default to FALSE}
+
+\item{...}{}
+}
+\value{
+clipboard object
 }
 \description{
 Write data to the clipboard

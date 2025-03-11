@@ -7,7 +7,7 @@
 #' @param grp grouping columns
 #' @param ord ordering columns
 #'
-#' @return
+#' @return tibble
 #' @export
 #'
 #' @examples

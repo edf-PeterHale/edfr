@@ -13,6 +13,9 @@ filter_latest(d, grp, ord)
 
 \item{ord}{ordering columns}
 }
+\value{
+tibble
+}
 \description{
 Filter a data frame (per group(s)) to the first row (by descending order)
 }
