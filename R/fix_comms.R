@@ -15,13 +15,15 @@ fix_comms <- function(df, col=comms) {
     dplyr::mutate(
       {{col}} := iconv({{col}}, to = "ASCII", sub = ""),  # remove ASCII characters
       {{col}} := stringr::str_replace({{col}}, '^[\\+\\(\\)]', ''),  # remove + ( )
-      {{col}} := stringr::str_replace({{col}}, '\\/', ':'), # fix IP addresses
+      {{col}} := stringr::str_replace_all({{col}}, '[\\/\\;]+', ':'), # fix IP addresses
+      {{col}} := stringr::str_remove_all({{col}}, '\t'),  # remove + ( )
       {{col}} := dplyr::case_when(  # fix comms numbers
         grepl('^44[0-9]+$',{{col}}) ~ stringr::str_replace({{col}}, '^44','0'),
         grepl('^7[0-9]+',{{col}}) ~ stringr::str_replace({{col}}, '^7','07'),
         grepl('^00345[0-9]+',{{col}}) ~ stringr::str_replace({{col}}, '^00345','345'),
         grepl('^(?i)u[0-9]{1,3}\\..*',{{col}}) ~ stringr::str_replace({{col}}, '^(?i)u',''),
-        TRUE ~ {{col}})
+        TRUE ~ {{col}}),
+      {{col}} := trimws({{col}})
     )
 }
 
