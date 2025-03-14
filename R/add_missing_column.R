@@ -18,7 +18,7 @@
 #' Trying to add a column that already exists returns the existing data frame
 #' tibble::tibble(a=1, b=2) |> add_missing_col(col='a',type='character')
 #'
-add_missing_col <- function(d, col, type) {
+add_missing_col <- function(d, col, type='logical') {
 
   if({{col}} %in% names(d)) {
     return(d)
