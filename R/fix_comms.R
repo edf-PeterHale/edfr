@@ -18,7 +18,6 @@ fix_comms <- function(df, col=comms) {
       {{col}} := stringr::str_replace_all({{col}}, '[\\/\\;]+', ':'), # fix IP addresses
       {{col}} := stringr::str_remove_all({{col}}, '\t'),  # remove + ( )
       {{col}} := stringr::str_replace({{col}}, '^TE[0]{0,1}7', '07'), #remove TE from mobile numbers
-      str_replace(comms_address, '^TE[0]{0,1}7', '07')
       {{col}} := dplyr::case_when(  # fix comms numbers
         grepl('^44[0-9]+$',{{col}}) ~ stringr::str_replace({{col}}, '^44','0'),
         grepl('^7[0-9]+',{{col}}) ~ stringr::str_replace({{col}}, '^7','07'),
