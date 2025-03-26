@@ -13,7 +13,7 @@ query_afms <- function(q, dsn = 'AFMS', bigint = 'integer',
                        params = list(), show.query = FALSE) {
 
   conn <- DBI::dbConnect(drv = odbc::odbc(), dsn = dsn, bigint = bigint,
-                         USR = Sys.getenv('AFMS_USER'), PWD = Sys.getenv('AFMS_PWD'))
+                         UID = Sys.getenv('AFMS_USER'), PWD = Sys.getenv('AFMS_PWD'))
 
   iq <- DBI::sqlInterpolate(conn, q, .dots = params)
   if(show.query) {message(iq)}
