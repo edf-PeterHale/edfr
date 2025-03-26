@@ -4,7 +4,7 @@
 \alias{add_missing_col}
 \title{Add Missing Column}
 \usage{
-add_missing_col(d, col, type)
+add_missing_col(d, col, type = "logical")
 }
 \arguments{
 \item{d}{data frame}

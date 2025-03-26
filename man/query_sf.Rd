@@ -19,13 +19,13 @@ query_sf(
 \arguments{
 \item{q}{query}
 
-\item{dsn}{driver name, default **SnowFlake**}
+\item{dsn}{driver name, default SnowFlake}
 
-\item{database}{database, default **FLK_DUB_DB_DATALAKE_PRD**}
+\item{database}{database, default FLK_DUB_DB_DATALAKE_PRD.}
 
-\item{schema}{schema, default **DIMENSIONAL_IAC**}
+\item{schema}{schema, default DIMENSIONAL_IAC}
 
-\item{role}{Snowflake role, default **FLK_DUB_ROL_DATALAKEBUSINESSANALYST_PRD**}
+\item{role}{Snowflake role, default FLK_DUB_ROL_DATALAKEBUSINESSANALYST_PRD.}
 
 \item{bigint}{how do we treat bigints, default 'integer'}
 
@@ -39,7 +39,17 @@ query_sf(
 tibble
 }
 \description{
-Query Snowflake
+Query Snowflake.
+
+Some useful databases/schemas:
+  - FLK_DUB_DB_DATALAKE_PRD.DIMENSIONAL_IAC
+  - WORKINGDB_EBS_PRD.METERING_OPERATIONS_TEST
+  - WORKINGDB_EBS_PRD.METERING_OPERATIONS_PUBLISH
+  - BIGCHANGE2175EDFENERGYLTD.BIGCHANGE_2175_EDF_ENERGY_LTD
+
+Useful roles:
+  - FLK_DUB_ROL_DATALAKEBUSINESSANALYST_PRD
+  - ROL_ENGINEER_METERING_EBS
 }
 \examples{
 query_sf("select * from dimservicepoint limit 1", show.query = TRUE)

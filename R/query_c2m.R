@@ -3,8 +3,8 @@
 #' @param q query
 #' @param dsn driver name, default 'C2M'
 #' @param database database, default 'CISADM'
-#' @param bigint how do we treat bigints, defualt 'integer'
-#' @param LogLevel set to zero to avois printing connection messages
+#' @param bigint how do we treat bigints, default 'integer'
+#' @param LogLevel set to zero to avoid printing connection messages
 #' @param params optional list of parameters to be passed to the query
 #' @param show.query show the query being sent, default = FALSE
 #'

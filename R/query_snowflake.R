@@ -1,10 +1,24 @@
 #' Query Snowflake
 #'
+#' @description
+#' Query Snowflake.
+#'
+#' Some useful databases/schemas:
+#'   - FLK_DUB_DB_DATALAKE_PRD.DIMENSIONAL_IAC
+#'   - WORKINGDB_EBS_PRD.METERING_OPERATIONS_TEST
+#'   - WORKINGDB_EBS_PRD.METERING_OPERATIONS_PUBLISH
+#'   - BIGCHANGE2175EDFENERGYLTD.BIGCHANGE_2175_EDF_ENERGY_LTD
+#'
+#' Useful roles:
+#'   - FLK_DUB_ROL_DATALAKEBUSINESSANALYST_PRD
+#'   - ROL_ENGINEER_METERING_EBS
+#'
+#'
 #' @param q query
-#' @param dsn driver name, default **SnowFlake**
-#' @param database database, default **FLK_DUB_DB_DATALAKE_PRD**
-#' @param schema schema, default **DIMENSIONAL_IAC**
-#' @param role Snowflake role, default **FLK_DUB_ROL_DATALAKEBUSINESSANALYST_PRD**
+#' @param dsn driver name, default SnowFlake
+#' @param database database, default FLK_DUB_DB_DATALAKE_PRD.
+#' @param schema schema, default DIMENSIONAL_IAC
+#' @param role Snowflake role, default FLK_DUB_ROL_DATALAKEBUSINESSANALYST_PRD.
 #' @param bigint how do we treat bigints, default 'integer'
 #' @param LogLevel set to zero to avoid printing connection messages
 #' @param params optional list of parameters to be passed to the query
