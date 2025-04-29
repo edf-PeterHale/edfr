@@ -5,7 +5,7 @@
 \title{Query Snowflake}
 \usage{
 query_sf(
-  q,
+  q = "select 1 as test",
   dsn = "SnowFlake",
   database = "FLK_DUB_DB_DATALAKE_PRD",
   schema = "DIMENSIONAL_IAC",

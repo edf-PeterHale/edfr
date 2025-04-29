@@ -64,7 +64,7 @@
 #' my_values=pasteSQL(tibble(v=c(2,4,6,8,10)) |> pull(v)))
 #' )
 #'
-query_sf <- function(q, dsn = 'SnowFlake', database = 'FLK_DUB_DB_DATALAKE_PRD', schema = 'DIMENSIONAL_IAC',
+query_sf <- function(q="select 1 as test", dsn = 'SnowFlake', database = 'FLK_DUB_DB_DATALAKE_PRD', schema = 'DIMENSIONAL_IAC',
                      role = "FLK_DUB_ROL_DATALAKEBUSINESSANALYST_PRD", bigint = 'integer',
                      LogLevel = 0, params = list(), show.query = FALSE) {
 
