@@ -14,20 +14,13 @@ get_mop_portfolio <- function(supp=FALSE) {
   if(supp) {
     q_ <- "select
            mp.*,
-           sup.* exclude(RECORD_ID, MPAN, METER_TYPE, MOP_START, MOP_END, SUPPLIER_TIER, SUPPLIER, MTS_METER_TYPE, SERIAL_NO)
-          from WORKINGDB_ALTERYX_EBS_DEV.DEV_CORE_MO.LIVE_MOP_PORTFOLIO mp
-          left join WORKINGDB_ALTERYX_EBS_DEV.DEV_CORE_MO.MOP_PORTFOLIO_SUPPLEMENTARY sup using(record_id)"
+           sup.* exclude(RECORD_ID, MPAN, METER_TYPE, MOP_START, MOP_END, SUPPLIER_TIER, SUPPLIER, MTS_METER_TYPE, SERIAL_NO, DATA_REFRESHED)
+          from WORKINGDB_ALTERYX_EBS_PRD.PRD_CORE_MO.IFS_MOP_PORTFOLIO mp
+          left join WORKINGDB_ALTERYX_EBS_PRD.PRD_CORE_MO.IFS_MOP_PORTFOLIO_SUPPLEMENTARY sup using(record_id)"
   } else {
-    q_ <- "select * from WORKINGDB_ALTERYX_EBS_DEV.DEV_CORE_MO.LIVE_MOP_PORTFOLIO"
+    q_ <- "select * from WORKINGDB_ALTERYX_EBS_PRD.PRD_CORE_MO.IFS_MOP_PORTFOLIO"
   }
 
   edfr::query_sf(q_)
 }
-
-
-
-
-
-
-
 
