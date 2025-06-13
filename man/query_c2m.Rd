@@ -10,6 +10,7 @@ query_c2m(
   database = "CISADM",
   bigint = "integer",
   LogLevel = 0,
+  tracing = 1,
   params = list(),
   show.query = FALSE
 )
@@ -24,6 +25,8 @@ query_c2m(
 \item{bigint}{how do we treat bigints, default 'integer'}
 
 \item{LogLevel}{set to zero to avoid printing connection messages}
+
+\item{tracing}{level of error messages to be displayed}
 
 \item{params}{optional list of parameters to be passed to the query}
 

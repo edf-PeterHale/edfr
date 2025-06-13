@@ -27,6 +27,7 @@
 #' @param role Snowflake role, default FLK_DUB_ROL_DATALAKEBUSINESSANALYST_PRD.
 #' @param bigint how do we treat bigints, default 'integer'
 #' @param LogLevel set to zero to avoid printing connection messages
+#' @param tracing level of error messages to be displayed
 #' @param params optional list of parameters to be passed to the query
 #' @param show.query show the query being sent, default = FALSE
 #'

@@ -13,6 +13,7 @@ query_sf(
   bigint = "integer",
   LogLevel = 0,
   params = list(),
+  tracing = 1,
   show.query = FALSE
 )
 }
@@ -32,6 +33,8 @@ query_sf(
 \item{LogLevel}{set to zero to avoid printing connection messages}
 
 \item{params}{optional list of parameters to be passed to the query}
+
+\item{tracing}{level of error messages to be displayed}
 
 \item{show.query}{show the query being sent, default = FALSE}
 }
