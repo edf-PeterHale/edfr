@@ -16,12 +16,12 @@ query_c2m <- function(q, dsn = 'C2M', database = 'CISADM', bigint = 'integer',
                       LogLevel = 0, tracing=0, params = list(), show.query = FALSE) {
 
   conn <- DBI::dbConnect(drv = odbc::odbc(), dsn = dsn, database = database, bigint = bigint,
-                         LogLevel = 0, tracing=tracing, PWD = Sys.getenv('C2MPWD'))
+                         LogLevel = 0, PWD = Sys.getenv('C2MPWD'))
 
   iq <- DBI::sqlInterpolate(conn, q, .dots = params)
   if(show.query) {message(iq)}
 
-  out <- DBI::dbGetQuery(conn, statement = iq) |> tibble::as_tibble()
+  out <- DBI::dbGetQuery(conn, statement = iq, tracing=tracing) |> tibble::as_tibble()
 
   names(out) <- tolower(names(out))
 

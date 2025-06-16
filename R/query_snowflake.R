@@ -70,12 +70,12 @@ query_sf <- function(q="select 1 as test", dsn = 'SnowFlake', database = 'FLK_DU
                      LogLevel = 0, params = list(), tracing=0, show.query = FALSE) {
 
   conn <- DBI::dbConnect(drv = odbc::odbc(), dsn = dsn, database = database, schema = schema,
-                         role = role, bigint = bigint, LogLevel=LogLevel, tracing=tracing)
+                         role = role, bigint = bigint, LogLevel=LogLevel)
 
   iq <- DBI::sqlInterpolate(conn, q, .dots = params)
   if(show.query) {message(iq)}
 
-  out <- DBI::dbGetQuery(conn, statement = iq) |> tibble::as_tibble()
+  out <- DBI::dbGetQuery(conn, statement = iq, tracing=tracing) |> tibble::as_tibble()
 
   names(out) <- tolower(names(out))
 
