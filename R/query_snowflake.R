@@ -67,7 +67,7 @@
 #'
 query_sf <- function(q="select 1 as test", dsn = 'SnowFlake', database = 'FLK_DUB_DB_DATALAKE_PRD', schema = 'DIMENSIONAL_IAC',
                      role = "FLK_DUB_ROL_DATALAKEBUSINESSANALYST_PRD", bigint = 'integer',
-                     LogLevel = 0, params = list(), tracing=1, show.query = FALSE) {
+                     LogLevel = 0, params = list(), tracing=0, show.query = FALSE) {
 
   conn <- DBI::dbConnect(drv = odbc::odbc(), dsn = dsn, database = database, schema = schema,
                          role = role, bigint = bigint, LogLevel=LogLevel, tracing=tracing)
