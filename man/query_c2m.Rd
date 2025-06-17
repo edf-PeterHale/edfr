@@ -10,7 +10,7 @@ query_c2m(
   database = "CISADM",
   bigint = "integer",
   LogLevel = 0,
-  tracing = 1,
+  tracing = 0,
   params = list(),
   show.query = FALSE
 )

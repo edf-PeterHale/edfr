@@ -13,7 +13,7 @@ query_sf(
   bigint = "integer",
   LogLevel = 0,
   params = list(),
-  tracing = 1,
+  tracing = 0,
   show.query = FALSE
 )
 }
