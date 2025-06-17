@@ -4,9 +4,11 @@
 \alias{get_mop_portfolio}
 \title{Get MOP Portfolio}
 \usage{
-get_mop_portfolio(supp = FALSE)
+get_mop_portfolio(cols = "*", supp = FALSE)
 }
 \arguments{
+\item{cols}{Vector of columns to select. Default to all columns}
+
 \item{supp}{Include supplementary fields, Default is FALSE}
 }
 \value{
