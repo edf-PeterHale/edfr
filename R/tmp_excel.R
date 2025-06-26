@@ -7,6 +7,7 @@
 #' @param df Dataframe to be opened in Excel
 #'
 #' @return Excel file
+#' @import writexl
 #' @export
 #'
 tmp_excel <- function(df) {

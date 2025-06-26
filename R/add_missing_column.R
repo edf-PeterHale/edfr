@@ -9,6 +9,7 @@
 #' @param type column type ('character','integer' or 'numeric', else defaults to 'logical')
 #'
 #' @return tibble
+#' @import dplyr
 #' @export
 #'
 #' @examples

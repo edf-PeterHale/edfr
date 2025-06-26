@@ -12,3 +12,13 @@ LazyData: true
 RoxygenNote: 7.3.2
 Depends: 
     R (>= 2.10)
+Imports: 
+    DBI,
+    dplyr,
+    ggplot2,
+    odbc,
+    readr,
+    rlang,
+    stringr,
+    tibble,
+    writexl
